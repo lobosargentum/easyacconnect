@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emergency AC Repair (After Hours) | EmergencyACConnect</title>
+
+  <!--
+    =========================
+    QUICK SETUP CHECKLIST
+    =========================
+    1) Put this file as: index.html
+    2) Put your images in the SAME folder (or adjust paths):
+       - hero_tech_ac.png                 (MAIN HERO IMAGE: AC unit + technician)
+       - btn_call_now.png                 (CALL NOW BUTTON IMAGE you approved)
+       - badge_local.png                  (BADGE: Local Service)
+       - badge_fast.png                   (BADGE: Fast Response)
+       - badge_licensed.png               (BADGE: Licensed & Insured)
+       - badge_247.png                    (BADGE: Available 24/7)
+
+    3) Replace the phone placeholders below with your CallRail tracking number:
+       - PHONE_DISPLAY: formatted for humans (e.g., (602) 555-0123)
+       - PHONE_TEL: digits only, include country code for best results (e.g., +16025550123)
+
+    4) Change CITY label if needed (e.g., "Phoenix Metro")
+  -->
+
+  <meta name="description" content="After-hours emergency AC repair calls only. Fast routing to an available local technician partner. No forms." />
+
+  <style>
+    :root{
+      --bg0:#07121f;
+      --bg1:#0b2233;
+      --card:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(225,240,255,.72);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 55% 15%, rgba(83,184,255,.22), transparent 60%),
+        radial-gradient(900px 600px at 20% 35%, rgba(108,230,255,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 18px 60px;}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px;}
+    .dot{
+      width:14px;height:14px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #6ce6ff, #53b8ff);
+      box-shadow: 0 0 18px rgba(83,184,255,.55);
+    }
+    .pill{
+      display:flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:16px;
+    }
+    @media (max-width: 920px){ .hero{grid-template-columns:1fr;} }
+
+    .card-inner{padding:26px 22px;}
+
+    h1{
+      margin:0 0 10px;
+      font-size:44px; line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    @media (max-width: 520px){ h1{font-size:36px;} }
+
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      max-width:58ch;
+    }
+
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start;}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius:18px;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease;
+      overflow:hidden;
+    }
+    .cta:hover{transform:translateY(-1px);filter:brightness(1.03);}
+    .cta img{display:block;height:86px;width:auto;}
+
+    /* Phone box under the Call Now button (for desktop users / manual dialing) */
+    .phone-box{
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      min-width: 240px;
+    }
+    .phone-box .label{font-size:12px;opacity:.9;margin-bottom:6px;}
+    .phone-box .num{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.2px;
+      color: rgba(255,255,255,.92);
+    }
+    .phone-box .hint{font-size:12px;opacity:.8;margin-top:6px;line-height:1.35;}
+
+    .badges{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    @media (max-width: 920px){ .badges{grid-template-columns: repeat(2, 1fr);} }
+    .badge{
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:10px;
+    }
+    .badge img{width:100%;height:auto;display:block;max-width:260px;}
+
+    .right{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    /* HERO IMAGE PANEL */
+    .hero-media{
+      padding:0;
+      position:relative;
+      min-height: 380px;
+      background: rgba(255,255,255,.03);
+    }
+    .hero-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .hero-media .overlay{
+      position:absolute;inset:0;
+      background: linear-gradient(180deg, rgba(7,18,31,.10), rgba(7,18,31,.55));
+    }
+    .hero-media .caption{
+      position:absolute;
+      left:16px; right:16px; bottom:14px;
+      padding:12px 12px;
+      border-radius:16px;
+      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(225,240,255,.85);
+      font-size:13px;
+      line-height:1.35;
+      backdrop-filter: blur(6px);
+    }
+
+    .tile{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:18px 18px;
+    }
+    .tile h2{margin:0 0 8px;font-size:16px;}
+    .tile p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;}
+
+    details{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:12px 12px;
+      margin:10px 0;
+    }
+    summary{cursor:pointer;font-weight:800;font-size:13px;}
+    details p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5;}
+
+    .footer{
+      margin-top:18px;
+      color:rgba(225,240,255,.58);
+      font-size:12px;
+      line-height:1.45;
+      padding:14px 4px 0;
+    }
+    .divider{height:1px;background:rgba(255,255,255,.10);margin:16px 0;}
+  </style>
+</head>
+
+<body>
+  <script>
+    /*
+      =========================
+      CALLRAIL PHONE PLACEHOLDERS
+      =========================
+      Replace these 2 values with your CallRail tracking number.
+
+      Example:
+        PHONE_DISPLAY = "(602) 555-0123"
+        PHONE_TEL     = "+16025550123"
+
+      Notes:
+      - PHONE_DISPLAY can include parentheses/spaces/dashes (humans).
+      - PHONE_TEL should be digits with optional +country code (phones/browsers).
+    */
+    const PHONE_DISPLAY = "(602) 555-0123";  // <-- CHANGE THIS
+    const PHONE_TEL = "+16025550123";        // <-- CHANGE THIS
+
+    /*
+      CITY label used in the pill and a couple sections.
+      Example: "Phoenix Metro"
+    */
+    const CITY = "Phoenix Metro";            // <-- CHANGE THIS if needed
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-phone-display]").forEach(el => el.textContent = PHONE_DISPLAY);
+      document.querySelectorAll("[data-phone-tel]").forEach(el => el.setAttribute("href", "tel:" + PHONE_TEL));
+      document.querySelectorAll("[data-city]").forEach(el => el.textContent = CITY);
+    });
+  </script>
+
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span><span>EmergencyACConnect</span></div>
+      <div class="pill">After-Hours Emergency Calls • <span data-city></span></div>
+    </div>
+
+    <div class="hero">
+      <!-- LEFT: Main copy + CTA + badges -->
+      <div class="card">
+        <div class="card-inner">
+          <h1>Emergency AC Repair<br/>After Hours</h1>
+
+          <p class="sub">
+            If your AC stops cooling tonight, tap to call. We route you to an available local technician partner.
+            <strong>No forms.</strong> <strong>No waiting.</strong>
+          </p>
+
+          <div class="cta-row">
+            <div>
+              <!--
+                CALL NOW BUTTON IMAGE PLACEHOLDER:
+                Put your approved button file here (same folder):
+                  btn_call_now.png
+              -->
+              <a class="cta" data-phone-tel href="tel:+16025550123" aria-label="Call now">
+                <img src="btn_call_now.png" alt="Call Now" />
+              </a>
+
+              <!-- Phone box under button (desktop/manual dialing) -->
+              <div class="phone-box">
+                <div class="label">Call now (after-hours):</div>
+                <div class="num" data-phone-display>(602) 555-0123</div>
+                <div class="hint">Not on mobile? Dial the number above.</div>
+              </div>
+            </div>
+
+            <div class="tile" style="flex:1;min-width:260px;">
+              <h2>What happens when you call?</h2>
+              <p>
+                We connect you to a local HVAC technician partner who can handle urgent after-hours breakdowns.
+                If one partner doesn’t answer, your call rolls to the next available.
+              </p>
+            </div>
+          </div>
+
+          <!-- BADGES ROW -->
+          <div class="badges" aria-label="Trust badges">
+            <!--
+              BADGE IMAGE PLACEHOLDERS (put these files in same folder):
+              - badge_local.png
+              - badge_fast.png
+              - badge_licensed.png
+              - badge_247.png
+            -->
+            <div class="badge"><img src="badge_local.png" alt="Local service" /></div>
+            <div class="badge"><img src="badge_fast.png" alt="Fast response" /></div>
+            <div class="badge"><img src="badge_licensed.png" alt="Licensed and insured" /></div>
+            <div class="badge"><img src="badge_247.png" alt="Available 24/7" /></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: HERO IMAGE + quick info -->
+      <div class="right">
+        <div class="card hero-media">
+          <!--
+            MAIN HERO IMAGE PLACEHOLDER:
+            Put your approved hero photo here (same folder):
+              hero_tech_ac.png
+
+            This is the “AC unit + repairman” main image.
+          -->
+          <img src="hero_tech_ac.png" alt="HVAC technician inspecting an AC unit" />
+          <div class="overlay"></div>
+          <div class="caption">.
+            After-hours emergency routing • <span data-city></span><br/>
+            Calls-only for fastest response
+          </div>
+        </div>
+
+        <div class="tile">/
+          <h2>Common emergency situations</h2>
+          <p>Examples we route for:</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.55;">
+            <li>AC not cooling / warm air</li>
+            <li>Unit won’t turn on</li>
+            <li>Home heating up quickly</li>
+            <li>Strange noises / electrical smells</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;" class="tile">
+      <h2>Service Area</h2>
+      <p>
+        We route after-hours emergency calls across <strong data-city></strong>.
+        Availability depends on partner schedules and coverage.
+      </p>
+    </div>
+
+    <div style="margin-top:12px;">
+      <details>
+        <summary>Do you repair AC units yourselves?</summary>
+        <p>No. EmergencyACConnect provides call routing only and connects you to independent local HVAC technician partners.</p>
+      </details>
+      <details>
+        <summary>Do I pay EmergencyACConnect?</summary>
+        <p>No. Homeowners do not pay us. Service pricing is between you and the technician partner.</p>
+      </details>
+      <details>
+        <summary>What if no one answers?</summary>
+        <p>Your call rolls to backup routing where available. If no partner is available, you may reach voicemail.</p>
+      </details>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+      <strong>Disclaimer:</strong> EmergencyACConnect provides call routing and lead connection services only and does not perform HVAC work.
+      Availability depends on partner schedules and coverage. In unsafe conditions (smoke, electrical smell, medical concern), call local emergency services.
+    </div>
+  </div>
+</body>
+</html>.
